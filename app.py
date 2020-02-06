@@ -21,6 +21,27 @@ def load_user(userid):
         return None
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        login_user(user)
+        flask.flash('Logged in successfully.')
+        next = flask.request.args.get('next')
+        if not is_safe_url(next):
+            return abort(400)
+
+        return redirect(next or url_for('index'))
+    return render_template('login.html', form=form)
+
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+
 @app.route('/')
 def index():
     """ Homepage """

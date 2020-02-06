@@ -5,5 +5,9 @@
     <div class="col"><a href="/">Home</a></div>
     <div class="col"><a href="/">About</a></div>
     <div class="col"><a href="/">Company</a></div>
-    <div class="col"></div>
+    <div class="col">
+        {% if current_user.is_authenticated %}
+        Hi {{ current_user.name }}!
+        {% endif %}
+    </div>
 </nav>
