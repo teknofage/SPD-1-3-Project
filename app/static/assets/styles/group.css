@@ -1,0 +1,117 @@
+#group__wrapper-title {
+  width: 50%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 4px solid rgb(43, 43, 43);
+  background-color: var(--report-bg-color);
+  align-self: flex-start;
+  margin-left: 5%;
+  margin-bottom: 10px;
+}
+
+#group__title {
+  width: 99%;
+  height: 99%;
+  align-self: flex-start;
+  font-size: 4rem;
+  text-align: center;
+  border-radius: 20px;
+  color: rgb(43, 43, 43);
+  background-color: var(--report-label-bg-color);
+}
+
+#group__wrapper-info {
+  width: 50%;
+  height: 70%;
+  border-radius: 20px;
+  border: 4px solid rgb(43, 43, 43);
+  padding: 10px;
+  margin-left: 5%;
+  background-color: var(--report-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+}
+
+#group__info {
+  width: 99%;
+  height: 99%;
+  border-radius: 20px;
+  padding: 20px;
+  color: rgb(43, 43, 43);
+  font-size: 2rem;
+  background-color: var(--report-label-bg-color);
+  overflow: scroll;
+}
+
+#group__wrapper-members {
+  width: 40%;
+  height: 85%;
+  border-radius: 20px;
+  border: 4px solid rgb(43, 43, 43);
+  padding: 10px;
+  background-color: var(--report-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  position: absolute;
+  right: 3%;
+}
+
+#group__members {
+  width: 99%;
+  height: 99%;
+  border-radius: 20px;
+  padding: 20px;
+  color: rgb(43, 43, 43);
+  font-size: 2rem;
+  background-color: var(--report-label-bg-color);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+.group__members-item {
+  width: 90%;
+  height: 60px;
+  border: 4px solid rgb(43, 43, 43);
+  border-radius: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(43, 43, 43);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--report-label-bg-color);
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  #group__wrapper-title {
+    width: 90%;
+    margin-left: 0;
+    align-self: center;
+  }
+
+  #group__wrapper-info {
+    width: 90%;
+    height: 40%;
+    margin-left: 0;
+    align-self: center;
+    margin-bottom: 10px;
+  }
+
+  #group__wrapper-members {
+    width: 90%;
+    height: 40%;
+    position: relative;
+    right: 0;
+    align-self: flex-start;
+    align-self: center;
+  }
+}
