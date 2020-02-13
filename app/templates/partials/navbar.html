@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light bg-dark row">
+    <a class="navbar-brand col-1" href="/">
+        <img src="/static/assets/deedle_trans.png" width="30" height="30" class="d-inline-block align-top" alt="Deedl">
+    </a>
+    <div class="col"><a href="{{ url_for('index') }}">Home</a></div>
+    <div class="col"><a href="/">About</a></div>
+    <div class="col"><a href="/">Company</a></div>
+    <div class="col-1">
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+    </div>
+
+</nav>
