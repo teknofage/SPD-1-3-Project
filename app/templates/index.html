@@ -1,21 +1,22 @@
-{% extends 'base.html' %} {% block content %}
-{% include 'partials/sidebar.html' %}
-<div id="report-list">
-  {% for deed in deeds %}
-  <div class="report">
-    <div class="report__title">{deed.title}</div>
-    <div class="report__date">3-20-2020</div>
-    <div class="report-info">
-      <button class="report-info__tag details">Details</button>
-      <button class="report-info__tag location">Location</button>
-      {deed.body}
+{% extends 'base.html' %} {% block content %} {% include 'partials/sidebar.html' %}
+<div id="index_content">
+  <div id="report-list">
+    {% for deed in deeds %}
+    <div class="report">
+      <div class="report__title">{deed.title}</div>
+      <div class="report__date">3-20-2020</div>
+      <div class="report-info">
+        <button class="report-info__tag details">Details</button>
+        <button class="report-info__tag location">Location</button>
+        {deed.body}
+      </div>
+      <div class="report-guest-list">
+        <div class="report-guest-list__item">Anonymous Guest</div>
+        <div class="report-guest-list__item">Anonymous Guest</div>
+        <div class="report-guest-list__item">Anonymous Guest</div>
+      </div>
     </div>
-    <div class="report-guest-list">
-      <div class="report-guest-list__item">Anonymous Guest</div>
-      <div class="report-guest-list__item">Anonymous Guest</div>
-      <div class="report-guest-list__item">Anonymous Guest</div>
-    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
 {% endblock %}
