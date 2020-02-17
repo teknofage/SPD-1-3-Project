@@ -4,6 +4,7 @@ from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 from werkzeug.urls import url_parse
+import os
 
 
 @app.route('/static/<path:filename>')
@@ -17,6 +18,23 @@ def serve_static(filename):
 @login_required
 def index():
     return render_template('index.html', title='Home')
+
+
+@app.route('/about')
+@login_required
+def about():
+    return render_template('about.html', title='About')
+
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    deeds = [
+        {'author': user, 'body': 'Test deed #1'},
+        {'author': user, 'body': 'Test deed #2'}
+    ]
+    return render_template('user.html', user=user, deeds=deeds)
 
 
 @app.route('/login', methods=['GET', 'POST'])

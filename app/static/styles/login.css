@@ -22,8 +22,8 @@ body {
 #logo {
   width: 70%;
   height: 60%;
-  border: 6px solid #505050;
-  border-radius: 20px;
+  /* border: 6px solid #505050;
+  border-radius: 20px; */
   display: flex;
   justify-content: center;
   align-items: center;

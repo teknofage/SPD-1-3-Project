@@ -1,35 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Deedle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static',filename='styles/main.css') }}"
-    />
-  </head>
-  <body>
-    <header id="navbar">
-      <div class="logo">Logo</div>
-      <form action="/home">
-        <button class="navbar__btn">Home</button>
-      </form>
-      <form action="/about">
-        <button class="navbar__btn">About</button>
-      </form>
-      <form action="/group">
-        <button class="navbar__btn">Group</button>
-      </form>
-    </header>
-    <div id="sidebar">
-      <button class="sidebar__btn"></button>
-      <button class="sidebar__btn"></button>
-      <button class="sidebar__btn"></button>
-      <button class="sidebar__btn"></button>
-    </div>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}" />
+</head>
+
+<body>
+    {% include 'partials/navbar.html' %}
+
     <div id="container">
-      {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
     </div>
-  </body>
+</body>
+
 </html>

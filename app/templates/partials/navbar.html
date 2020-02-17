@@ -14,3 +14,34 @@
     </div>
 
 </nav>
+<header id="navbar">
+    <div class="logo">
+        <a class="navbar-brand col-1" href="/">
+            <img src="/static/assets/deedle_trans.png" width="70" height="70" class="d-inline-block align-top"
+                alt="Deedl" style="
+                border: 1px solid black;
+                border-radius: 50%;
+                background-color: white;
+            ">
+        </a>
+    </div>
+    <form action="/about">
+        <button class="navbar__btn">About</button>
+    </form>
+    <form action="/group">
+        <button class="navbar__btn">Group</button>
+    </form>
+    <form action="/group">
+        <button class="navbar__btn">
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% else %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}</button>
+    </form>
+
+    <button class="navbar__btn">
+        <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+    </button>
+
+</header>

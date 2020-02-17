@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="user_sidebar">
+    <div id="prof_img">
+        <img src="{{ user.avatar(128) }}" style="
+            border: 1px solid black;
+            border-radius: 50%;
+            
+        ">
+    </div>
+    <div class="user_info">
+        <h1>User: {{ user.username }}</h1>
+    </div>
+
+</div>
+<hr>
+{% for deed in deeds %}
+<p>
+    {{ deed.author.username }} says: <b>{{ deed.body }}</b>
+</p>
+{% endfor %}
+{% endblock %}
