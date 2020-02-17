@@ -24,7 +24,7 @@ ___
 
 #### Rationale
 
-People need to build community. This forum for bringing groups closer together and helping the needy s a way of doing just that.
+People need to build community. This forum for bringing groups closer together and helping the needy is a way of doing just that.
 
 #### Description
 
