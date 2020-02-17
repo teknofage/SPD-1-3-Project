@@ -14,7 +14,6 @@ def serve_static(filename):
 
 
 @app.route('/')
-@app.route('/index')
 @login_required
 def index():
     return render_template('index.html', title='Home')
