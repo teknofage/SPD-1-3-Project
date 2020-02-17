@@ -32,12 +32,13 @@
         <button class="navbar__btn">Group</button>
     </form>
     <form action="/group">
+        {% if current_user.is_anonymous %}
         <button class="navbar__btn">
-            {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
-            {% else %}
-            <a href="{{ url_for('logout') }}">Logout</a>
-            {% endif %}</button>
+        </button>
+        {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
     </form>
 
     <button class="navbar__btn">

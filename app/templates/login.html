@@ -34,14 +34,11 @@
       </p>
       <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
       <p>{{ form.submit() }}</p>
+      <p class="button"><a href="{{ url_for('register') }}">Register</a></p>
     </form>
-    <!-- <form id="login-form" action="/home">
-        <label id="login-form__lable">Username:</label>
-        <input id="login-form__input" type="text" placeholder="username" />
-        <label id="login-form__lable">Password:</label>
-        <input id="login-form__input" type="password" placeholder="password" />
-      </form> -->
   </div>
+
+
 </body>
 
 </html>
