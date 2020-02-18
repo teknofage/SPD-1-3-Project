@@ -28,8 +28,8 @@
     <form action="/about">
         <button class="navbar__btn">About</button>
     </form>
-    <form action="/group">
-        <button class="navbar__btn">Group</button>
+    <form action="">
+        <button class="navbar__btn"><a href="{{ url_for('company') }}">Company</a></button>
     </form>
     <form action="/group">
         {% if current_user.is_anonymous %}

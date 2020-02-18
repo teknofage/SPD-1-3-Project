@@ -36,6 +36,12 @@ def user(username):
     return render_template('user.html', user=user, deeds=deeds)
 
 
+@app.route('/user/company')
+@login_required
+def company():  # params for this will be "roles" roles(flask_login) = company(deedle_groups)
+    return render_template('group.html')  # set company = to comapny
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
