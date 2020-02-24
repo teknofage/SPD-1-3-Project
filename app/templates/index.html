@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% include 'partials/sidebar.html' %}
-<div id="index_content">
-  <div id="report-list">
+<div>
+  <div>
     {% for deed in deeds %} {% include 'partials/deed.html' %} {% endfor %}
   </div>
 </div>

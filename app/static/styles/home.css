@@ -11,8 +11,8 @@
 }
 
 #report-list {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -21,18 +21,20 @@
 }
 
 .report {
-  width: 90%;
-  height: 500px;
+  /* width: 90%;
+  height: 500px; */
   border: 4px solid rgb(43, 43, 43);
-  border-radius: 20px;
+  border-radius: 15px;
   background-color: var(--report-bg-color);
   position: relative;
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  margin: 5px auto;
+  padding: 5px;
 }
 
 .report__title {
-  width: 45%;
-  height: 75px;
+  /* width: 45%;
+  height: 75px; */
   border: 4px solid rgb(43, 43, 43);
   border-radius: 20px;
   position: absolute;

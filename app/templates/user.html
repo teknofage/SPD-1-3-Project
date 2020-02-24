@@ -11,13 +11,36 @@
     </div>
     <div class="user_info">
         <h1>User: {{ user.username }}</h1>
+        {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
+        {% if user == current_user %}
+        <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+        {% endif %}
     </div>
-
+    <div class="post_form">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.title.label }}<br>
+                {{ form.title(cols=32, rows=4) }}<br>
+                {% for error in form.title.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.body.label }}<br>
+                {{ form.body(cols=32, rows=4) }}<br>
+                {% for error in form.body.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
 </div>
-<hr>
-{% for deed in deeds %}
-<p>
-    {{ deed.author.username }} says: <b>{{ deed.body }}</b>
-</p>
-{% endfor %}
+<div>
+    {% for deed in deeds %}
+    {% include 'partials/deed.html' %}
+    {% endfor %}
+</div>
+
 {% endblock %}
