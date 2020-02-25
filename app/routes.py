@@ -34,7 +34,7 @@ def user(username):
     form = DeedForm()
     if form.validate_on_submit():
         deed = Deed(title=form.title.data,
-                    body=form.body.data, author=current_user)
+                    body=form.body.data, author=current_user, group=current_user.group)
         db.session.add(deed)
         db.session.commit()
         flash('Your deed is now live!')
@@ -45,8 +45,12 @@ def user(username):
 
 @app.route('/user/company')
 @login_required
-def company():  # params for this will be "roles" roles(flask_login) = company(deedle_groups)
-    return render_template('group.html')  # set company = to comapny
+def company():
+    # params for this will be "roles" roles(flask_login) = company(deedle_groups)
+
+    deeds = Deed.query.order_by(Deed.timestamp.desc()).all()
+    # set company = to comapny
+    return render_template('group.html', deeds=deeds)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -63,6 +67,7 @@ def login():
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
+        return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
 
@@ -99,13 +104,13 @@ def register():
 def edit_profile():
     form = EditProfileForm()
     if form.validate_on_submit():
-        form = EditProfileForm(current_user.username)
-        # current_user.about_me = form.about_me.data
+        current_user.username = form.username.data
+        current_user.group = form.group.data
         db.session.commit()
         flash('Your changes have been saved.')
         return redirect(url_for('user', username=current_user.username))
     elif request.method == 'GET':
         form.username.data = current_user.username
-        # form.about_me.data = current_user.about_me
+        form.group.data = current_user.group
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)

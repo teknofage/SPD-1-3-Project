@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
 
@@ -17,6 +17,10 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    group = SelectField("Choose your Company: ", choices=[('blue', 'Blue Squares'),
+                                                          ('red', 'Red Dragons'),
+                                                          ('green', 'Green Scales'),
+                                                          ('purple', 'Purple Royals')], default='blue')
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -32,17 +36,26 @@ class RegistrationForm(FlaskForm):
 
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
+    group = SelectField("Choose your Company: ", choices=[('blue', 'Blue Squares'),
+                                                          ('red', 'Red Dragons'),
+                                                          ('green', 'Green Scales'),
+                                                          ('prple', 'Purple Royals')], default='blue')
     submit = SubmitField('Submit')
 
-    def __init__(self, original_username, *args, **kwargs):
+    def __init__(self, original_username, original_group, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
         self.original_username = original_username
+        self.original_group = original_group
 
     def validate_username(self, username):
         if username.data != self.original_username:
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
                 raise ValidationError('Please use a different username.')
+
+    def validate_group(self, group):
+        if group.data != self.original_group:
+            user = User.query.filter_by(group=self.group.data).first()
 
 
 class DeedForm(FlaskForm):

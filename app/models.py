@@ -17,6 +17,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     deeds = db.relationship('Deed', backref='author', lazy='dynamic')
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    group = db.Column(db.String(25), nullable=True, default='blue')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
