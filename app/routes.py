@@ -34,7 +34,7 @@ def user(username):
     form = DeedForm()
     if form.validate_on_submit():
         deed = Deed(title=form.title.data,
-                    body=form.body.data, author=current_user, group=current_user.group)
+                    body=form.body.data, author=current_user)
         db.session.add(deed)
         db.session.commit()
         flash('Your deed is now live!')
@@ -102,7 +102,7 @@ def register():
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
-    form = EditProfileForm()
+    form = EditProfileForm(current_user.username, current_user.group)
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.group = form.group.data

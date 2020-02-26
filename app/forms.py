@@ -53,10 +53,6 @@ class EditProfileForm(FlaskForm):
             if user is not None:
                 raise ValidationError('Please use a different username.')
 
-    def validate_group(self, group):
-        if group.data != self.original_group:
-            user = User.query.filter_by(group=self.group.data).first()
-
 
 class DeedForm(FlaskForm):
     title = StringField('Title', validators=[
