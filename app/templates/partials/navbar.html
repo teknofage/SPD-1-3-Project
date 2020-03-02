@@ -1,35 +1,18 @@
 <header id="navbar">
-    <div class="logo">
-        <a class="navbar-brand col-1" href="/">
-            <img src="/static/assets/deedle_trans.png" width="70" height="70" class="d-inline-block align-top"
-                alt="Deedl" style="
-                  border: 1px solid black;
-                  border-radius: 50%;
-                  background-color: white;
-              " />
-        </a>
-    </div>
-    <div class="navbar_options">
-        <a class="navbar__btn" href="/about">About</a>
-        <a class="navbar__btn" href="{{ url_for('company')}}">Company</a>
-        <a class="navbar__btn" href="{{ url_for('user', username=current_user.username) }}">Profile</a>
-        {% if current_user.is_anonymous %}
-        <a class="navbar__btn" href="{{ url_for('login') }}">Login</a>
-        {% else %}
-        <a class="navbar__btn" href="{{ url_for('logout') }}">Logout</a>
-        {% endif %}
-    </div>
-    <div class="dropdown">
-        Home
-        <div class="dropdown-content">
-            <a class="navbar__btn" href="/about">About</a>
-            <a class="navbar__btn" href="/company">Company</a>
-            <a class="navbar__btn" href="{{ url_for('user', username=current_user.username) }}">Profile</a>
-            {% if current_user.is_anonymous %}
-            <a class="navbar__btn" href="{{ url_for('login') }}">Login</a>
-            {% else %}
-            <a class="navbar__btn" href="{{ url_for('logout') }}">Logout</a>
-            {% endif %}
-        </div>
-    </div>
+  <div class="logo">
+    <a id="navbar__logo" class="col-1" href="/">
+      <!-- <img
+        src="/static/assets/deedle_trans.png"
+        class="d-inline-block align-top"
+        alt="Deedl"
+        style="height: 100%;"
+      /> -->
+      Deedl
+    </a>
+  </div>
+  <div id="navbar__hamburger">
+    <div class="thick"></div>
+    <div class="thick"></div>
+    <div class="thick"></div>
+  </div>
 </header>

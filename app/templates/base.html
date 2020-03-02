@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Deedle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}" />
-</head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/main.css') }}"
+    />
+  </head>
 
-<body>
-    {% include 'partials/navbar.html' %}
+  <body>
+    <div id="nav_container">
+      {% include 'partials/navbar.html' %} {% include 'partials/sidebar.html' %}
+    </div>
 
     <div id="container">
-        {% block content %}{% endblock %}
+      {% block content %}{% endblock %}
     </div>
-</body>
-
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+  </body>
 </html>

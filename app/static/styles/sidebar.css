@@ -1,0 +1,146 @@
+#sidebar {
+  font-size: 5vw;
+  line-height: 3vw;
+
+  background-color: white;
+  margin-top: 8%;
+  padding: 22px;
+
+  transition: transform 1s;
+  transform: translateY(0%);
+  transform: translateX(100%);
+  width: 60%;
+  height: 90%;
+  max-width: 300px;
+  pointer-events: all;
+}
+
+.sidebar button {
+  background: none;
+  color: #ff6a30;
+  border: none;
+  outline: none;
+  padding: 0 !important;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+#sidebar button {
+  text-align: center;
+
+  width: 100%;
+  max-width: 400px;
+  height: 60px;
+  margin-bottom: 5px;
+
+  border-bottom: 1px solid #eaedf0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sidebar button:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+.is_visible {
+  transform: translateX(0%) !important;
+}
+
+#sidebar__list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.sidebar__link {
+  color: var(--report-bg-color);
+  text-align: center;
+  font-size: 4vw;
+
+  width: 100%;
+  max-width: 400px;
+  padding: 5%;
+  margin-bottom: 5px;
+
+  border-bottom: 1px solid #eaedf0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sidebar__link:hover {
+  text-decoration: none;
+  color: var(--report-label-bg-color);
+}
+
+.current-user__info {
+  background: #ffffff;
+  border-bottom: 1px solid rgb(225, 228, 231);
+
+  width: 100%;
+  height: 75px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.current-user__img {
+  display: none;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  background-size: 40px;
+}
+.current-user__name {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  #sidebar {
+    display: table;
+    transform: translateY(-100%);
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 17%;
+    position: relative;
+    left: 0;
+  }
+  .is_visible {
+    transform: translateY(0%);
+  }
+  #sidebar button {
+    align-items: flex-start;
+  }
+  .current-user__name {
+    justify-content: flex-start;
+  }
+  .current-user-img {
+    display: block;
+  }
+  .sidebar__link {
+    align-items: center;
+    font-size: 6vw;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
