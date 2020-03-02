@@ -1,20 +1,22 @@
 <div class="report">
-  <div class="post-avatar"><img src="{{ deed.author.avatar(36) }}"></div>
-  <div class="title">{{deed.title}}</div>
+  <!-- <div class="post-avatar"><img src="{{ deed.author.avatar(36) }}" /></div> -->
   {% if deed.user_id==current_user.id %}
   <form method="POST" action="/update">
-    <input type="hidden" value="{{deed.id}}" name="deedid">
-    <input type="hidden" value="{{deed.title}}" name="oldtitle">
-    <input type="text" value="{{deed.title}}" name="newtitle">
-    <input type="hidden" value="{{deed.body}}" name="oldcontent">
-    <input type="text" value="{{deed.body}}" name="newcontent">
-    <input type="submit" value="Update">
+    <input type="hidden" value="{{deed.id}}" name="deedid" />
+    <input type="hidden" value="{{deed.title}}" name="oldtitle" />
+    <input class="report__title" type="text" value="{{deed.title}}" name="newtitle" />
+    <input type="hidden" value="{{deed.body}}" name="oldcontent" />
+    <textarea class="report-info" type="text" name="newcontent">{{deed.body}}</textarea>
+    <input class="report__sender" style="cursor: pointer;" type="submit" value="Update" />
   </form>
   <form method="POST" action="/profile/deed/delete" style="display: inline">
-    <input type="hidden" value="{{deed.id}}" name="deedid">
-    <input type="submit" value="Delete">
+    <input type="hidden" value="{{deed.id}}" name="deedid" />
+    <input class="report__date" style="cursor: pointer;" type="submit" value="Delete" />
   </form>
+  {% else %}
+  <div class="report__title">{{deed.title}}</div>
+  <div class="report-info">{{deed.body}}</div>
+  <div class="report__sender">{{deed.author.username}}</div>
+  <div class="report__date">{{deed.author.group}}</div>
   {% endif %}
-  <div class="posted_by">Posted by: {{deed.author.group}} | {{deed.author.username}}</div>
-  <div>{{deed.body}}</div>
 </div>

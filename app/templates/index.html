@@ -1,7 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<div>
-  <div>
-    {% for deed in deeds %} {% include 'partials/deed.html' %} {% endfor %}
-  </div>
+<div id="report-list">
+  {% for deed in deeds %} {% include 'partials/deed.html' %} {% endfor %}
 </div>
 {% endblock %}
