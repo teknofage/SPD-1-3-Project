@@ -114,3 +114,13 @@ def edit_profile():
         form.group.data = current_user.group
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
+
+
+@app.route('/profile/deed/delete', methods=['GET', 'POST'])
+@login_required
+def delete_deed():
+    title = request.form.get('title')
+    deed = Deed.query.filter_by(title=title).first_or_404()
+    db.session.delete(deed)
+    db.session.commit()
+    return redirect(url_for('user', username=current_user.username))
