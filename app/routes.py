@@ -119,8 +119,8 @@ def edit_profile():
 @app.route('/profile/deed/delete', methods=['GET', 'POST'])
 @login_required
 def delete_deed():
-    title = request.form.get('title')
-    deed = Deed.query.filter_by(title=title).first_or_404()
+    id = request.form.get('deedid')
+    deed = Deed.query.filter_by(id=id).first_or_404()
     db.session.delete(deed)
     db.session.commit()
     return redirect(url_for('user', username=current_user.username))

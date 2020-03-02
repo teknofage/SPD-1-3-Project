@@ -3,7 +3,7 @@
   <div class="title">{{deed.title}}</div>
   {% if deed.user_id==current_user.id %}
   <form method="POST" action="/profile/deed/delete" style="display: inline">
-    <input type="hidden" value="{{deed.title}}" name="title">
+    <input type="hidden" value="{{deed.id}}" name="deedid">
     <input type="submit" value="Delete">
   </form>
   {% endif %}
