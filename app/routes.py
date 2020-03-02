@@ -124,3 +124,17 @@ def delete_deed():
     db.session.delete(deed)
     db.session.commit()
     return redirect(url_for('user', username=current_user.username))
+
+
+@app.route("/update", methods=["POST"])
+def update():
+    id = request.form.get('deedid')
+    newtitle = request.form.get("newtitle")
+    oldtitle = request.form.get("oldtitle")
+    newcontent = request.form.get("newcontent")
+    oldcontent = request.form.get("oldcontent")
+    deed = Deed.query.filter_by(id=id).first_or_404()
+    deed.title = newtitle
+    deed.body = newcontent
+    db.session.commit()
+    return redirect(url_for('user', username=current_user.username))

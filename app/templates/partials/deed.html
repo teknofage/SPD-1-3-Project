@@ -2,6 +2,14 @@
   <div class="post-avatar"><img src="{{ deed.author.avatar(36) }}"></div>
   <div class="title">{{deed.title}}</div>
   {% if deed.user_id==current_user.id %}
+  <form method="POST" action="/update">
+    <input type="hidden" value="{{deed.id}}" name="deedid">
+    <input type="hidden" value="{{deed.title}}" name="oldtitle">
+    <input type="text" value="{{deed.title}}" name="newtitle">
+    <input type="hidden" value="{{deed.body}}" name="oldcontent">
+    <input type="text" value="{{deed.body}}" name="newcontent">
+    <input type="submit" value="Update">
+  </form>
   <form method="POST" action="/profile/deed/delete" style="display: inline">
     <input type="hidden" value="{{deed.id}}" name="deedid">
     <input type="submit" value="Delete">
