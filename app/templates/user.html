@@ -1,50 +1,51 @@
-{% extends "base.html" %}
-
-{% block content %}
-<div id="user_sidebar">
-    <div id="prof_img">
-        <img src="{{ user.avatar(128) }}" style="
-            border: 1px solid black;
-            border-radius: 50%;
-            
-        ">
+{% extends "base.html" %} {% block content %}
+<div id="user-container">
+  <div id="user_sidebar">
+    <div id="user-header">
+      <div id="user-header__title-wrapper">
+        <div id="user-header__title-subwrapper">
+          <h1 id="user-header__title">{{ user.username }}</h1>
+        </div>
+      </div>
+      <img src="{{ user.avatar(128) }}" id="user-image" />
     </div>
-    <div class="user_info">
-        <h1>User: {{ user.username }}</h1>
-        {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
-        {% if user.group == 'blue' %} <p>Company: Blue Squares</p> {% endif %}
-        {% if user.group == 'red' %} <p>Company: Red Dragons</p> {% endif %}
-        {% if user.group == 'green' %} <p>Company: Green Scales</p> {% endif %}
-        {% if user.group == 'purple' %} <p>Company: Purple Royals</p> {% endif %}
-        {% if user == current_user %}
-        <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+    <div id="user-info-wrapper">
+      <div id="user-info">
+        {% if user.last_seen %}
+        <h2>Last seen on:</h2>
+        <p>{{ user.last_seen }}</p>
         {% endif %}
+        <h2>Company:</h2>
+        {% if user.group == 'blue' %}
+        <p>Blue Squares</p>
+        {% endif %} {% if user.group == 'red' %}
+        <p>Red Dragons</p>
+        {% endif %} {% if user.group == 'green' %}
+        <p>Green Scales</p>
+        {% endif %} {% if user.group == 'purple' %}
+        <p>Purple Royals</p>
+        {% endif %}
+      </div>
     </div>
-    <div class="post_form">
-        <form action="" method="post">
-            {{ form.hidden_tag() }}
-            <p>
-                {{ form.title.label }}<br>
-                {{ form.title(cols=32, rows=4) }}<br>
-                {% for error in form.title.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p>
-                {{ form.body.label }}<br>
-                {{ form.body(cols=32, rows=4) }}<br>
-                {% for error in form.body.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p>{{ form.submit() }}</p>
-        </form>
+    <div id="user-report-wrapper">
+      <form id="user-report" action="" method="post">
+        {{ form.hidden_tag() }} {{ form.title.label }}<br />
+        {{ form.title(cols=32, rows=4) }}<br />
+        {% for error in form.title.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %} {{ form.body.label }}<br />
+        {{ form.body(cols=32, rows=4) }}<br />
+        {% for error in form.body.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+        <p>{{ form.submit() }}</p>
+      </form>
     </div>
+  </div>
+  <div id="user-report-list__wrapper">
+    <div id="user-report-list">
+      {% for deed in deeds %} {% include 'partials/deed.html' %} {% endfor %}
+    </div>
+  </div>
 </div>
-<div>
-    {% for deed in deeds %}
-    {% include 'partials/deed.html' %}
-    {% endfor %}
-</div>
-
 {% endblock %}
