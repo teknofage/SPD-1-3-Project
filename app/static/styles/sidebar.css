@@ -3,9 +3,6 @@
   height: 90%;
   max-width: 300px;
 
-  font-size: 5vw;
-  line-height: 3vw;
-
   background-color: white;
   padding: 22px;
 
@@ -29,27 +26,6 @@
   cursor: pointer;
 }
 
-#sidebar button {
-  text-align: center;
-
-  width: 100%;
-  max-width: 400px;
-  height: 60px;
-  margin-bottom: 5px;
-
-  border-bottom: 1px solid #eaedf0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#sidebar button:active {
-  transform: translateY(1px);
-  filter: saturate(150%);
-}
-
 .is_visible {
   transform: translateX(0%) !important;
 }
@@ -65,7 +41,7 @@
 .sidebar__link {
   color: var(--report-bg-color);
   text-align: center;
-  font-size: 4vw;
+  font-size: 3vw;
 
   width: 100%;
   max-width: 400px;
