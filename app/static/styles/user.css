@@ -5,6 +5,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 1%;
 }
 
 #user-report-list__wrapper {
@@ -124,7 +125,7 @@
 
 #user-info h2 {
   width: 100%;
-  font-size: 4vw;
+  font-size: 3vw;
   text-align: start;
   border-radius: 20px;
   color: rgb(43, 43, 43);
@@ -134,7 +135,7 @@
 #user-info p {
   width: 90%;
   color: var(--report-bg-color);
-  font-size: 3vw;
+  font-size: 2vw;
 }
 
 #user-info a {
@@ -149,14 +150,14 @@
 #user-report label {
   width: 100%;
   color: rgb(43, 43, 43);
-  font-size: 3vw;
+  font-size: 2vw;
   font-weight: bold;
 }
 
 #user-report input,
 #user-report textarea {
   width: 90%;
-  font-size: 100%;
+  font-size: 1vw;
   background-color: var(--report-label-bg-color);
   border: 4px solid rgb(43, 43, 43);
   border-radius: 20px;
