@@ -1,28 +1,24 @@
 {% extends 'base.html' %} {% block content %}
-<div id="group__wrapper-title">
-  <div id="group__title">Group</div>
-</div>
-<!-- <div id="group__wrapper-info">
-  <div id="group__info">
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
-    eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit,
-    posuere a, pede.
-  </div> -->
-<div>
-  {% for deed in deeds %}
-  {% if deed.author.group == current_user.group %}
-  {% include 'partials/deed.html' %}
-  {% endif %}
-  {% endfor %}
-
-</div>
-<!-- Note to self: This needs to be dynamic, add a for loop later -->
-<div id="group__wrapper-members">
-  <div id="group__members">
-    <div class="group__members-item">Thom</div>
-    <div class="group__members-item">Tanner</div>
-    <div class="group__members-item">Luke</div>
-    <div class="group__members-item">William</div>
+<div id="group-container">
+  <div id="group-sidebar">
+    <div id="group__wrapper-title">
+      <div id="group__title">Company</div>
+    </div>
+    <div id="group__wrapper-info">
+      <div id="group__info">
+        <!-- TODO: Fix the issue where this breaks the page if the text is removed -->
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat
+        mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper
+        suscipit, posuere a, pede.
+      </div>
+    </div>
+    </div>
+    <div id="group-report-list__wrapper">
+      <div id="group-report-list">
+        {% for deed in deeds %} {% if deed.author.group == current_user.group %} {% include
+        'partials/deed.html' %} {% endif %} {% endfor %}
+      </div>
+    </div>
   </div>
+  {% endblock %}
 </div>
-{% endblock %}
