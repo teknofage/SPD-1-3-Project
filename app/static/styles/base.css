@@ -6,10 +6,13 @@
 }
 
 :root {
-  --main-bg-color: #00687b;
+  --main-bg-color: #16151b;
+  --main-border-color: #54d5eb;
+  --nav-backgroud-color: #2a2730;
+  --main-title-color: #54d5eb;
   --sidebar-bg-color: #156e7e;
-  --report-bg-color: #0390a9;
-  --report-label-bg-color: #45b4c7;
+  --report-bg-color: #00badb;
+  --report-label-bg-color: #54d5eb;
 }
 
 html,
@@ -35,8 +38,8 @@ a {
 #navbar {
   width: 100%;
   height: 10%;
-  border: 4px solid #505050;
-  background-color: white;
+  border: 4px solid var(--main-border-color);
+  background-color: var(--nav-backgroud-color);
   padding-left: 3%;
   padding-right: 3%;
 
@@ -70,7 +73,7 @@ a {
 .thick {
   width: 35px;
   height: 5px;
-  background-color: #5d6063;
+  background-color: var(--main-border-color);
   margin: 6px 0;
   border-radius: 10px;
 }
