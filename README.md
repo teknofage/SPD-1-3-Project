@@ -56,9 +56,9 @@ Join a team or create a new one. Search for good deeds to complete for people in
 
 #### Useful Links
 
-TBA
+[Heroku Link](https://deedl.herokuapp.com/)
 
 
 #### Developers
 
-> Luke, Tanner, Thom, William
+> Luke Harrison, Tanner York, Thom d'Olanie, William Chadwick
